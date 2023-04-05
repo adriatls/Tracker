@@ -9,25 +9,31 @@
         <finished-task
           v-for="(task, index) in tasks"
           :task="task"
-          :key="index"/>
+          :key="index"
+        />
+        <light-yellow-box v-if="!tasks.length">
+          <p>Você não realizou tarefas ainda</p>
+        </light-yellow-box>
       </div>
     </div>
   </main>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import LateralBar from './components/LateralBar/LateralBar.vue';
+import { defineComponent } from 'vue'
+import LateralBar from './components/LateralBar/LateralBar.vue'
 import MainForm from './components/MainForm/MainForm.vue'
-import FinishedTask from './components/FinishedTask/FinishedTask.vue';
+import FinishedTask from './components/FinishedTask/FinishedTask.vue'
 import IFinishedTask from './Interfaces/IFinishedTask'
+import LightYellowBox from './components/LightYellowBox/LightYellowBox.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
     LateralBar,
     MainForm,
-    FinishedTask
+    FinishedTask,
+    LightYellowBox
   },
   data () {
     const tasks = [] as IFinishedTask[]
