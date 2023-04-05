@@ -29,6 +29,7 @@ export default defineComponent({
   components: {
     TimerCrontrol
   },
+  emits: ['newTaskFinished'],
   data () {
     let taskTitle = ''
     return {
@@ -37,6 +38,7 @@ export default defineComponent({
   },
   methods: {
     finishTask (timeSeconds: number) : void {
+      this.$emit('newTaskFinished', {timeSeconds, taskTitle: this.taskTitle   })
       this.taskTitle = ''
     }
   },
