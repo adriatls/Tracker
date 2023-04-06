@@ -1,20 +1,18 @@
 <template>
-    <div
-      class="is-flex is-align-items-center is-justify-content-space-between"
-    >
+    <div class="timer-container">
       <timer-form :timeSeconds="timeSeconds"/>
-      <button class="button" @click="play" :disabled="isTimerRunning">
-        <span class="icon">
-          <i class="fas fa-play"></i>
-        </span>
-        <span>play</span>
-      </button>
-      <button class="button" @click="stop" :disabled="!isTimerRunning">
-        <span class="icon">
-          <i class="fas fa-stop"></i>
-        </span>
-        <span>stop</span>
-      </button>
+        <button class="button" @click="play" :disabled="isTimerRunning">
+          <span class="icon">
+            <i class="fas fa-play"></i>
+          </span>
+          <span>play</span>
+        </button>
+        <button class="button" @click="stop" :disabled="!isTimerRunning">
+          <span class="icon">
+            <i class="fas fa-stop"></i>
+          </span>
+          <span>stop</span>
+        </button>
     </div>
 </template>
 
@@ -54,3 +52,12 @@ export default defineComponent({
   },
 })
 </script>
+
+<style scoped>
+.timer-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+}
+</style>

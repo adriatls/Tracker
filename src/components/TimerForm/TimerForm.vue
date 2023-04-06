@@ -30,5 +30,7 @@ export default defineComponent({
 .display {
   color: var(--text-primary);
   background-color: var(--bg-primary);
+  padding: 4px;
+  border-radius: 6px;
 }
 </style>

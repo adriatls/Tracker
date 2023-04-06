@@ -75,4 +75,9 @@ main.dark-mode {
 .content {
   background-color: var(--bg-secondary);
 }
+@media only screen and (max-width: 768px) {
+  .content {
+    height: calc(100vh - 196px);
+  }
+}
 </style>

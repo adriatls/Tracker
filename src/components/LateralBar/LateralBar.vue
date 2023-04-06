@@ -58,6 +58,13 @@ h1 {
 img {
   filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(87deg) brightness(107%) contrast(101%);
 }
+
+@media screen and (min-width : 769px) and (max-width : 910px) {
+  .button {
+    padding: 7px;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   header {
     padding: 2.5rem;
