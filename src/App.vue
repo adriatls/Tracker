@@ -75,9 +75,24 @@ main.dark-mode {
 .content {
   background-color: var(--bg-secondary);
 }
+
+.lista {
+  height: calc(100vh - 168px);
+  overflow-y: auto;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
 @media only screen and (max-width: 768px) {
-  .content {
-    height: calc(100vh - 196px);
+  .lista {
+    max-height: calc(100vh - 364px);
   }
 }
 </style>
