@@ -7,17 +7,7 @@
       <lateral-bar @themeChanged="changeTheme"/>
     </div>
     <div class="column is-three-quarter content">
-      <main-form @newTaskFinished="saveTask"/>
-      <div class="lista">
-        <finished-task
-          v-for="(task, index) in tasks"
-          :task="task"
-          :key="index"
-        />
-        <light-yellow-box v-if="!tasks.length">
-          <p>Você não realizou tarefas ainda</p>
-        </light-yellow-box>
-      </div>
+      <router-view/>
     </div>
   </main>
 </template>
@@ -25,31 +15,19 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import LateralBar from './components/LateralBar/LateralBar.vue'
-import MainForm from './components/MainForm/MainForm.vue'
-import FinishedTask from './components/FinishedTask/FinishedTask.vue'
-import IFinishedTask from './Interfaces/IFinishedTask'
-import LightYellowBox from './components/LightYellowBox/LightYellowBox.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
     LateralBar,
-    MainForm,
-    FinishedTask,
-    LightYellowBox
   },
   data () {
-    const tasks = [] as IFinishedTask[]
     let isDarkMode = false
     return {
-      tasks,
       isDarkMode
     }
   },
   methods: {
-    saveTask (task: IFinishedTask) {
-      this.tasks.push(task)
-    },
     changeTheme (isDarkMode: boolean) {
       this.isDarkMode = isDarkMode
     },
@@ -58,9 +36,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.lista {
-  padding: 1.25rem;
-}
 
 .main {
   --bg-primary: #fff;
@@ -74,25 +49,5 @@ main.dark-mode {
 }
 .content {
   background-color: var(--bg-secondary);
-}
-
-.lista {
-  height: calc(100vh - 168px);
-  overflow-y: auto;
-}
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888; 
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-}
-@media only screen and (max-width: 768px) {
-  .lista {
-    max-height: calc(100vh - 364px);
-  }
 }
 </style>
