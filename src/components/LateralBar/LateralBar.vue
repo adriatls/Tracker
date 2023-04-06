@@ -1,7 +1,9 @@
 <template>
   <header>
-    <img src="../../assets/chronograph-watch.png" alt="ícone de cronômetro" />
-    <h1>Tracker</h1>
+    <div class="project-name">
+      <img src="../../assets/chronograph-watch.png" alt="ícone de cronômetro" />
+      <h1>Tracker</h1>
+    </div>
     <button class="button" @click="changeTheme">
       {{ buttonText }}
     </button>
@@ -60,6 +62,19 @@ img {
   header {
     padding: 2.5rem;
     height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .project-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  h1 {
+    margin-bottom: 0;
   }
 }
 </style>

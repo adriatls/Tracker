@@ -1,8 +1,8 @@
 <template>
   <div class="box form">
-    <div class="columns">
+    <div class="columns controls-section">
       <div
-        class="column is-8"
+        class="column is-8 input-container"
         role="form"
         aria-label="Formulário para criação de uma nova tarefa"
       >
@@ -50,5 +50,15 @@ export default defineComponent({
   color: var(--text-primary);
   background-color: var(--bg-primary);
   border-radius: 0px 6px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .controls-section {
+    display: flex;
+    flex-direction: column;
+  }
+  .input-container {
+    width: 100% !important;
+  }
 }
 </style>
