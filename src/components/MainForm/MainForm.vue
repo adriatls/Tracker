@@ -37,8 +37,7 @@
 <script lang="ts">
 import { computed, defineComponent } from "vue";
 import TimerCrontrol from "../TimerControl/TimerCrontrol.vue";
-import { useStore } from "vuex";
-import { key } from "@/store";
+import { useStore } from "@/store";
 
 export default defineComponent({
   name: 'MainForm',
@@ -63,7 +62,7 @@ export default defineComponent({
     }
   },
   setup () {
-    const store = useStore(key)
+    const store = useStore()
     return {
       projectsList: computed(() => store.state.projectsList),
     }
