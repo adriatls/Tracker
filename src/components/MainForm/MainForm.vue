@@ -49,5 +49,6 @@ export default defineComponent({
 .form {
   color: var(--text-primary);
   background-color: var(--bg-primary);
+  border-radius: 0px 6px;
 }
 </style>

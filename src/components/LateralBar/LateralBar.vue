@@ -1,5 +1,6 @@
 <template>
   <header>
+    <img src="../../assets/chronograph-watch.png" alt="ícone de cronômetro" />
     <h1>Tracker</h1>
     <button class="button" @click="changeTheme">
       {{ buttonText }}
@@ -47,7 +48,13 @@ header {
 }
 h1 {
   color: white;
+  font-weight: bold;
+  font-size: 28px;
   margin-bottom: 12px;
+}
+
+img {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(87deg) brightness(107%) contrast(101%);
 }
 @media only screen and (max-width: 768px) {
   header {

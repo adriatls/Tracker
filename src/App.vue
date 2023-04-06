@@ -64,13 +64,15 @@ export default defineComponent({
 
 .main {
   --bg-primary: #fff;
+  --bg-secondary: #fff;
   --text-primary: #000;
 }
 main.dark-mode {
   --bg-primary: #2b2d42;
+  --bg-secondary: #353851;
   --text-primary: #ddd;
 }
 .content {
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
 }
 </style>
