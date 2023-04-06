@@ -4,9 +4,27 @@
       <img src="../../assets/chronograph-watch.png" alt="ícone de cronômetro" />
       <h1>Tracker</h1>
     </div>
-    <button class="button" @click="changeTheme">
-      {{ buttonText }}
-    </button>
+    <div class="has-text-centerd">
+      <button class="button" @click="changeTheme">
+        {{ buttonText }}
+      </button>
+    </div>
+    <nav class="panel mt-5">
+      <ul>
+        <li>
+          <router-link to="/" class="link">
+            <i class="fas fa-tasks"></i>
+            Página Inicial
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/projects" class="link">
+            <i class="fas fa-project-diagram"></i>
+            Projetos
+          </router-link>
+        </li>
+      </ul>
+    </nav>
   </header>
 </template>
 
@@ -54,9 +72,20 @@ h1 {
   font-size: 28px;
   margin-bottom: 12px;
 }
-
 img {
   filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(87deg) brightness(107%) contrast(101%);
+}
+.panel li {
+  margin: 8px 0;
+}
+.link {
+  color: #fff;
+}
+.link:hover {
+  color: #FAF0CA;
+}
+.link.router-link-active {
+  color: #FAF0CA;
 }
 
 @media screen and (min-width : 769px) and (max-width : 910px) {
