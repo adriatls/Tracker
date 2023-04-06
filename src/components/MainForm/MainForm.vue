@@ -2,7 +2,7 @@
   <div class="box form">
     <div class="columns controls-section">
       <div
-        class="column is-8 input-container"
+        class="column is-5 input-container"
         role="form"
         aria-label="Formulário para criação de uma nova tarefa"
       >
@@ -13,6 +13,20 @@
           v-model="taskTitle"
         />
       </div>
+      <div class="column is-3">
+        <div class="select">
+          <select v-model="projectId">
+            <option value="">Selecione o projeto</option>
+            <option
+              :value="project.id"
+              v-for="project in projectsList"
+              :key="project.id"
+            >
+              {{ project.name }}
+            </option>
+          </select>
+        </div>
+      </div>
       <div class="column">
         <timer-crontrol @finished-task="finishTask"/>
       </div>
@@ -21,8 +35,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 import TimerCrontrol from "../TimerControl/TimerCrontrol.vue";
+import { useStore } from "vuex";
+import { key } from "@/store";
 
 export default defineComponent({
   name: 'MainForm',
@@ -31,15 +47,25 @@ export default defineComponent({
   },
   emits: ['newTaskFinished'],
   data () {
-    let taskTitle = ''
     return {
-      taskTitle
+      taskTitle: '',
+      projectId: ''
     }
   },
   methods: {
     finishTask (timeSeconds: number) : void {
-      this.$emit('newTaskFinished', {timeSeconds, taskTitle: this.taskTitle   })
+      this.$emit('newTaskFinished', {
+        timeSeconds,
+        taskTitle: this.taskTitle,
+        project: this.projectsList.find (proj => proj.id === this.projectId)
+      })
       this.taskTitle = ''
+    }
+  },
+  setup () {
+    const store = useStore(key)
+    return {
+      projectsList: computed(() => store.state.projectsList),
     }
   },
 })
